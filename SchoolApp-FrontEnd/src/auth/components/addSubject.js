@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+
 import { addNewSubject } from "../api";
 import messages from "../messages";
+
 class AddSubject extends Component {
   constructor(props) {
     super(props);
@@ -115,4 +117,5 @@ class AddSubject extends Component {
     );
   }
 }
+
 export default withRouter(AddSubject);

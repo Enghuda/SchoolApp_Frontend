@@ -11,8 +11,8 @@ class AddFeed extends Component {
       Name: "",
       Description: "",
       Date: "",
-      EndDate: ""
-     
+      EndDate: "",
+      _id: ""
     };
   }
 
@@ -27,22 +27,31 @@ class AddFeed extends Component {
     e.preventDefault();
     console.log("this is state", this.state);
     const newFeed = {
-      subject: {
+      feed: {
         Name: this.state.Name,
         Description: this.state.Description,
         Date: this.state.Date,
         EndDate: this.state.EndDate
-
       }
     };
     console.log(newFeed);
     addNewfeed(newFeed)
-      .then(() => alert(messages.addFeedSuccess, "success"))
-      .then(() => history.push("/"))
+      // .then(() => alert(messages.addFeedSuccess, "success"))
+      // .then(() => history.push("/"))
       .then(response => {
         console.log("feed has been added", response.data);
-        this.props.AddFeed(newFeed);
-     
+        // this.props.AddFeed(newFeed);
+        const newFeeds = [...this.props.feeds];
+        const index = newFeeds.indexOf(response.data);
+        if (index !== -1) {
+        } else {
+          newFeeds.push(response.data.feed);
+        }
+
+        console.log("newFeeds : ", newFeeds);
+
+        this.props.setFeeds(newFeeds);
+        this.props.setShowform(false);
       })
       .catch(error => {
         console.log("API error", error);
@@ -56,36 +65,36 @@ class AddFeed extends Component {
       });
   };
   render() {
-  
-    const { Name, Description} = this.state;
+    const { Name, Description } = this.state;
     return (
       <div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <form onSubmit={this.SubmitHandeler}>
-          <div className="form-group">
-            <label>Name</label>
-            <input
-              type="text"
-              name="Name"
-              value={Name}
-              onChange={this.Changehandler}
-              className="form-control"
-              placeholder=" Name"
-            />
+          <div className="row">
+            <div className="col">
+              <label>Name</label>
+              <input
+                type="text"
+                name="Name"
+                value={Name}
+                onChange={this.Changehandler}
+                className="form-control"
+                placeholder=" Name"
+              />
+            </div>
+            <div className="col">
+              <label>Description</label>
+              <input
+                type="text"
+                name="Description"
+                value={Description}
+                onChange={this.Changehandler}
+                className="form-control"
+                placeholder=" Description"
+              />
+            </div>
           </div>
-          <div className="form-group">
-            <label>Description</label>
-            <input
-              type="text"
-              name="Description"
-              value={Description}
-              onChange={this.Changehandler}
-              className="form-control"
-              placeholder=" Description"
-            />
-          </div>
-       
           <button type="submit" className="btn btn-primary btn-block">
             {" "}
             submit
