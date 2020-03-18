@@ -1,5 +1,5 @@
 import React from "react";
-import Feed from "./Feed";
+import Feed from "./feed";
 import { withRouter } from "react-router-dom";
 import AddFeed from "./AddFeed";
 import { getAllFeeds, deleteFeedByID, updateFeed } from "../api";

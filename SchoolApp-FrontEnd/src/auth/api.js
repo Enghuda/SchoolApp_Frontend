@@ -23,11 +23,6 @@ const addNewSubject = subject => {
  const updateSubject = (id, subject) => {
    return axios.patch(`${apiUrl}/subjects/${id}`, subject);
  };
-  // Create new Exam
-  const addExam = exam => {
-    return axios.post(`${apiUrl}/subjects/:SubjectCode/exams`);
-  };
-
 
 
 // Get All Feeds
@@ -50,23 +45,15 @@ const addNewfeed = feed => {
  const updateFeed = (id, feed ) => {
   return axios.patch(`${apiUrl}/feeds/${id}`, feed);
 };
-
-
- 
-
-
   export {
     getAllSubjects,
     deleteSubjectByID,
     addNewSubject,
     updateSubject,
-    addExam,
     getAllFeeds,
     deleteFeedByID, 
     addNewfeed,
-    updateFeed
   };
-
 
 
 
