@@ -13,11 +13,6 @@
  - Bootstrap
  - Heroku
 
-## Wireframe:
-![School Dashboard wirefram](./w1.PNG)
-![School Dashboard wirefram](./w2.PNG)
-
-
 ## User Stories:
 - As an admin, I can modify the data on the dashboard
 - As an admin, I can sign up into the dashboard
