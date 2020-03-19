@@ -53,6 +53,7 @@ const addNewfeed = feed => {
     getAllFeeds,
     deleteFeedByID, 
     addNewfeed,
+    updateFeed
   };
 
 
