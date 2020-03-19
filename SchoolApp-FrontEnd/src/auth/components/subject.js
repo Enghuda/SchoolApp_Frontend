@@ -74,7 +74,7 @@ class Subject extends React.Component {
               />
             </div>
             {/* <div className="col"> */}
-              {/* <Exams exam={this.props.exams} id={this.props.id} /> */}
+            {/* <Exams exam={this.props.exams} id={this.props.id} /> */}
             {/* </div> */}
           </div>
           <button type="submit" className="btn btn-primary">
@@ -114,4 +114,5 @@ class Subject extends React.Component {
     );
   }
 }
+
 export default Subject;
